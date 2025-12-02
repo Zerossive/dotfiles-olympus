@@ -1,0 +1,68 @@
+#!/bin/env bash
+
+# add local bin to path so that log-entry will run
+export PATH="$HOME/.local/bin:$PATH"
+
+show_help() {
+	cat <<-EOF
+		Usage: ${0##*/} (start|stop) <container>...
+	EOF
+}
+
+# Start all containers that match a given name
+docker-start() {
+	# local matching_containers=($(docker ps --filter "name=$*" --filter 'status=exited' --format '{{.Names}} {{.ID}}'))
+	mapfile -t matching_containers < <(docker ps --filter "name=$*" --filter 'status=exited' --format '{{.Names}}')
+	for container in "${matching_containers[@]}"; do
+		if docker start "$container" 1>/dev/null; then
+			log-entry "INFO" "Started $container"
+		else
+			log-entry "ERROR" "Failed to start $container"
+		fi
+	done
+}
+
+# Stop all containers that match a given name
+docker-stop() {
+	mapfile -t matching_containers < <(docker ps --filter "name=$*" --format '{{.Names}}')
+	for container in "${matching_containers[@]}"; do
+		if docker stop "$container" 1>/dev/null; then
+			log-entry "INFO" "Stopped $container"
+		else
+			log-entry "ERROR" "Failed to stop $container"
+		fi
+	done
+}
+
+main() {
+	if [ "$#" -lt 2 ]; then
+		printf "ERROR: Not enough arguments provided\n" >&2
+		show_help
+		exit 1
+	fi
+
+	operation="$1"
+	shift
+	containers=("$@")
+
+	if [[ "$operation" == "start" ]]; then
+		for container in "${containers[@]}"; do
+			docker-start "$container"
+		done
+		exit 0
+	elif [[ "$operation" == "stop" ]]; then
+		for container in "${containers[@]}"; do
+			docker-stop "$container"
+		done
+		exit 0
+	else
+		printf "ERROR: Invalid operation: %s\n" "$operation" >&2
+		show_help
+		exit 1
+	fi
+
+}
+
+main "$@"
+
+# vim: set ft=sh:

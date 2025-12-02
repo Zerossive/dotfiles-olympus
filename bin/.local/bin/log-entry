@@ -1,0 +1,24 @@
+#!/bin/env bash
+
+# Write the following line format to a specific log file
+# [2035-12-25 05:00:32] [INFO] Task completed successfully
+# [2035-12-25 05:00:32] [ERROR] There was an error with Task
+
+# Check for empty arguments
+if [ "$#" -eq 0 ]; then
+	printf "ERROR: No arguments provided" >&2
+	exit 1
+fi
+
+# Initialize arguments
+date="$(date '+%Y-%m-%d %H:%M:%S')"
+if [ "$#" -eq 1 ]; then # Skip setting status if only one argument is provided
+	status="NONE"
+else
+	status="$1"
+	shift
+fi
+message="$*"
+
+# Make a log entry
+printf "%s\n" "[$date] [$status] $message" | tee -a ~/data/taskreport.log

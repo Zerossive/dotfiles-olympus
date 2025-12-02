@@ -1,0 +1,29 @@
+#!/bin/bash
+
+# add local bin to path so that log-entry will run
+export PATH="$HOME/.local/bin:$PATH"
+
+# Stop all containers that match a given name
+docker-stop() {
+	containers=$(docker ps --filter "name=$*" --format "{{.ID}}")
+
+	if [[ -n "$containers" ]]; then echo "$containers" | xargs docker stop; else return 1; fi
+}
+
+containers=("$@")
+
+for container in "${containers[@]}"; do
+	if docker-stop "$container"; then
+		log-entry "INFO" "Stopped $container"
+	else
+		log-entry "ERROR" "Failed to stop $container"
+	fi
+done
+
+# if docker-stop "immich"; then log-entry "INFO" "Stopped immich"; else log-entry "ERROR" "Failed to stop immich"; fi
+#
+# if docker-stop "full-text-rss"; then log-entry "INFO" "Stopped full-text-rss"; else log-entry "ERROR" "Failed to stop full-text-rss"; fi
+#
+# if docker-stop "freshrss"; then log-entry "INFO" "Stopped freshrss"; else log-entry "ERROR" "Failed to stop freshrss"; fi
+#
+# if docker-stop "audiobookshelf_abs-tract"; then log-entry "INFO" "Stopped abs-tract"; else log-entry "ERROR" "Failed to stop abs-tract"; fi
