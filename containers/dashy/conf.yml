@@ -1,0 +1,373 @@
+appConfig:
+  theme: thebe
+  layout: horizontal
+  iconSize: large
+  defaultOpeningMethod: sametab
+  hideComponents:
+    hideHeading: true
+    hideFooter: true
+  webSearch:
+    searchEngine: custom
+    customSearchEngine: https://search.brave.com/search?q=
+    openingMethod: sametab
+  language: en
+pageInfo:
+  title: Dashy
+sections:
+  - name: DEV MANAGEMENT
+    icon: fal fa-rocket
+    items:
+      - title: GitHub
+        description: Zerossive
+        icon: fab fa-github
+        url: https://github.com/Zerossive
+        id: 0_988_github
+      - title: Netlify
+        description: Web Host
+        icon: favicon
+        url: https://app.netlify.com
+        id: 1_988_netlify
+      - title: Namecheap
+        description: Domain Names
+        icon: favicon
+        url: https://www.namecheap.com
+        id: 2_988_namecheap
+      - title: PostImage
+        description: Image Hosting
+        icon: https://postimages.org/favicon.ico
+        url: https://postimages.org
+        id: 3_988_postimage
+      - title: Contentful
+        description: Content Management Service
+        icon: favicon
+        url: https://app.contentful.com
+        id: 4_988_contentful
+      - title: Tailscale
+        description: VPN Dashboard
+        icon: favicon
+        url: https://login.tailscale.com/
+        id: 5_988_tailscale
+  - name: ATLAS
+    icon: fal fa-desktop
+    items:
+      - title: Feishin Remote
+        description: Remote Control Server
+        icon: fas fa-music
+        url: http://atlas:4333
+        statusCheck: true
+        statusCheckUrl: http://192.168.1.89:4333
+        statusCheckAcceptCodes: '''401,402,403,418'''
+        id: 0_373_feishinremote
+  - name: OLYMPUS
+    icon: fal fa-server
+    items:
+      - title: Web Console
+        description: System Manager
+        icon: fas fa-server
+        url: https://olympus:9090
+        statusCheck: true
+        statusCheckUrl: https://192.168.1.231:9090
+        statusCheckAllowInsecure: true
+        id: 0_569_webconsole
+      - title: Jellyfin
+        description: Media
+        icon: fas fa-film
+        url: http://olympus:8096
+        statusCheck: true
+        statusCheckUrl: http://192.168.1.231:8096
+        id: 1_569_jellyfin
+      - title: Immich
+        description: Photos
+        icon: fas fa-image
+        url: http://olympus:2283
+        statusCheck: true
+        statusCheckUrl: http://192.168.1.231:2283
+        id: 2_569_immich
+      - title: Linkwarden
+        description: Bookmark Manager
+        icon: fas fa-bookmark
+        url: http://olympus:3210
+        statusCheck: true
+        statusCheckUrl: http://192.168.1.231:3210
+        id: 3_569_linkwarden
+      - title: Audiobookshelf
+        description: eBooks and Audiobooks
+        icon: fas fa-book
+        url: http://olympus:13378
+        statusCheck: true
+        statusCheckUrl: http://192.168.1.231:13378
+        id: 4_569_audiobookshelf
+      - title: FreshRSS
+        description: RSS Reader
+        icon: fas fa-rss
+        url: http://olympus:49999
+        statusCheck: true
+        statusCheckUrl: http://192.168.1.231:49999
+        id: 5_569_freshrss
+      - title: Full-Text RSS
+        description: RSS Extractor
+        icon: fas fa-rss
+        url: http://olympus:50000
+        statusCheck: true
+        statusCheckUrl: http://192.168.1.231:50000
+        id: 6_569_fulltextrss
+      - title: Pi-hole
+        description: Ad blocker
+        icon: fas fa-ad
+        url: https://olympus/admin
+        statusCheck: true
+        statusCheckUrl: https://192.168.1.231/admin
+        statusCheckAllowInsecure: true
+        statusCheckAcceptCodes: ''
+        id: 7_569_pihole
+      - title: Paperless-ngx
+        description: Document Library
+        icon: fas fa-leaf
+        url: http://olympus:8010
+        statusCheck: true
+        statusCheckUrl: http://192.168.1.231:8010
+        id: 8_569_paperlessngx
+      - title: ntfy
+        description: Notification Service
+        icon: fas fa-bell
+        url: http://olympus:8234/
+        statusCheck: true
+        statusCheckUrl: http://192.168.1.231:8234
+        id: 9_569_ntfy
+      - title: AudioMuse-AI
+        description: Music Analysis
+        icon: fas fa-waveform
+        url: http://olympus:8000
+        statusCheck: true
+        statusCheckUrl: http://192.168.1.231:8000
+        id: 10_569_audiomuseai
+      - title: Navidrome
+        description: Music
+        icon: fas fa-music
+        url: http://olympus:4533
+        statusCheck: true
+        statusCheckUrl: http://192.168.1.231:4533
+        id: 11_569_navidrome
+      - title: Arcane
+        description: Docker Container Manager
+        icon: fab fa-docker
+        url: http://olympus:3552/
+        statusCheck: true
+        statusCheckUrl: http://192.168.1.231:3552
+        id: 12_569_arcane
+  - name: WEBSITES
+    icon: fal fa-link
+    items:
+      - title: KNB Racing
+        description: Kaylee
+        icon: https://knbracing.com/logo.svg
+        url: https://knbracing.com
+        id: 0_614_knbracing
+      - title: Portfolio
+        description: Danny
+        icon: https://dannyharris.dev/favicon.ico
+        url: https://dannyharris.dev
+        id: 1_614_portfolio
+      - title: Image Request
+        description: AI Image Generator
+        icon: https://imagerequest.netlify.app/favicon.ico
+        url: https://imagerequest.netlify.app
+        id: 2_614_imagerequest
+      - title: Point Allocator
+        description: Stat Tracker
+        icon: https://pointallocator.netlify.app/favicon.ico
+        url: https://pointallocator.netlify.app
+        id: 3_614_pointallocator
+      - title: MultiDashboard
+        description: Quick Notes
+        icon: https://multidashboard.netlify.app/favicon.ico
+        url: https://multidashboard.netlify.app
+        id: 4_614_multidashboard
+      - title: Component Library
+        description: React Components
+        icon: https://componentlibrary.netlify.app/logo.svg
+        url: https://componentlibrary.netlify.app
+        id: 5_614_componentlibrary
+      - title: Texas Cheer Allstars
+        description: Admin Page
+        icon: >-
+          https://www.texascheerallstars.com/wp-content/uploads/2021/04/logo-nav.png
+        url: https://www.texascheerallstars.com/wp-login
+        id: 6_614_texascheerallstars
+      - title: Freelance
+        description: Web Dev Service
+        icon: https://youneedawebsite.netlify.app/favicon.svg
+        url: https://youneedawebsite.netlify.app
+        id: 7_614_freelance
+  - name: USEFUL TOOLS
+    icon: fal fa-hammer
+    items:
+      - title: TinyPNG
+        description: Image Compression
+        icon: favicon
+        url: https://tinypng.com
+        id: 0_901_tinypng
+      - title: Figma
+        description: Designer
+        icon: favicon
+        url: https://figma.com
+        id: 1_901_figma
+      - title: Coolors
+        description: Color Palette Generator
+        icon: favicon
+        url: https://coolors.co
+        id: 2_901_coolors
+      - title: Realtime Colors
+        description: Color Palette Generator
+        icon: favicon
+        url: https://realtimecolors.com
+        id: 3_901_realtimecolors
+      - title: Site-Shot
+        description: Website Screenshotter
+        icon: favicon
+        url: https://site-shot.com
+        id: 4_901_siteshot
+      - title: Toptal Patterns
+        description: Subtle Pattern Library
+        icon: favicon
+        url: https://www.toptal.com/designers/subtlepatterns/
+        id: 5_901_toptalpatterns
+      - title: Sitemaps
+        description: Generate Sitemaps
+        icon: favicon
+        url: https://www.mysitemapgenerator.com
+        id: 6_901_sitemaps
+      - title: Lorem Picsum
+        description: Placeholder Images
+        icon: favicon
+        url: https://picsum.photos/
+        id: 7_901_lorempicsum
+      - title: Stack Sorted
+        description: Website Ideas
+        icon: favicon
+        url: https://stacksorted.com/buttons
+        id: 8_901_stacksorted
+      - title: fffuel
+        description: SVG & Color Generators
+        icon: https://www.fffuel.co/images/favicon/favicon.ico
+        url: https://www.fffuel.co
+        id: 9_901_fffuel
+      - title: Favicon Generator
+        description: Generate Website Icons
+        icon: https://favicon.inbrowser.app/favicon.svg
+        url: https://favicon.inbrowser.app/tools/favicon-generator
+        id: 10_901_favicongenerator
+      - title: selfh.st Icons
+        description: Software Icons
+        icon: favicon
+        url: https://selfh.st/icons/
+        id: 11_901_selfhsticons
+      - title: MiniQR
+        description: QR Code Generator
+        icon: https://mini-qr-code-generator.vercel.app/favicon.svg
+        url: https://mini-qr-code-generator.vercel.app
+        id: 12_901_miniqr
+      - title: Font Style Matcher
+        description: Match Local & Webfonts
+        icon: favicon
+        url: https://meowni.ca/font-style-matcher/
+        id: 13_901_fontstylematcher
+      - title: Free for Dev
+        description: List of Free Developer Software
+        icon: https://free-for.dev/logo.webp
+        url: https://free-for.dev/#/
+        id: 14_901_freefordev
+      - title: Fallback Font Generator
+        description: Match Local & Webfonts
+        icon: https://screenspan.net/favicon.svg
+        url: https://screenspan.net/fallback
+        id: 15_901_fallbackfontgenerator
+      - title: Photoroom Background Removal
+        description: Erase image backgrounds
+        icon: favicon
+        url: https://www.photoroom.com/tools/background-remover
+        id: 16_901_photoroombackgroundremoval
+      - title: 21st.dev
+        description: Website Ideas
+        icon: favicon
+        url: https://21st.dev
+        id: 17_901_stdev
+      - title: Iconify
+        description: Icon Library
+        icon: favicon
+        url: https://icon-sets.iconify.design
+        id: 18_901_iconify
+      - title: CALLTOIDEA
+        description: Component Ideas
+        icon: favicon
+        url: https://www.calltoidea.com
+        id: 19_901_calltoidea
+      - title: One Page Love
+        description: Hero Page Ideas
+        icon: favicon
+        url: https://onepagelove.com
+        id: 20_901_onepagelove
+      - title: lapa
+        description: Website Ideas
+        icon: favicon
+        url: https://www.lapa.ninja
+        id: 21_901_lapa
+      - title: CSS Generators
+        description: Cool CSS Effects
+        icon: favicon
+        url: https://css-generators.com
+        id: 22_901_cssgenerators
+      - title: PINETOOLS
+        description: Various Media tools
+        icon: favicon
+        url: https://pinetools.com
+        id: 23_901_pinetools
+      - title: haikei
+        description: SVG Backgrounds
+        icon: favicon
+        url: https://app.haikei.app
+        id: 24_901_haikei
+      - title: Uiverse
+        description: Website Component Ideas
+        icon: favicon
+        url: https://uiverse.io
+        id: 25_901_uiverse
+  - name: DOCUMENTATION
+    icon: fal fa-book
+    items:
+      - title: Dashy
+        description: Dashboard Builder
+        icon: favicon
+        url: https://dashy.to/docs/
+        id: 0_986_dashy
+      - title: shadcn/ui
+        description: React Components
+        icon: favicon
+        url: https://ui.shadcn.com/docs
+        id: 1_986_shadcnui
+      - title: Tailwind CSS
+        description: Utility CSS
+        icon: favicon
+        url: https://tailwindcss.com/docs
+        id: 2_986_tailwindcss
+      - title: Vite
+        description: Web Bundler
+        icon: https://vitejs.dev/logo.svg
+        url: https://vitejs.dev/guide/
+        id: 3_986_vite
+      - title: Tanstack Router
+        description: React Routing
+        icon: favicon
+        url: https://tanstack.com/router/latest/docs
+        id: 4_986_tanstackrouter
+      - title: Portainer
+        description: Docker Manager
+        icon: favicon
+        url: https://docs.portainer.io
+        id: 5_986_portainer
+      - title: Motion
+        description: JavaScript Animations
+        icon: favicon
+        url: https://motion.dev/docs/react-quick-start
+        id: 6_986_motion
+pages: []

@@ -1,0 +1,11 @@
+.env
+stack.env
+containers/dockge/data/
+containers/linkwarden/data/
+containers/linkwarden/pgdata/
+containers/freshrss/data/
+containers/nginx/data/
+containers/pihole/etc-pihole/
+containers/ntfy/data/
+containers/paperless-ngx/consume/
+containers/paperless-ngx/export/
