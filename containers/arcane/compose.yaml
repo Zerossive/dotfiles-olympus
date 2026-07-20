@@ -16,6 +16,7 @@ services:
       - ENCRYPTION_KEY=${ENCRYPTION_KEY}
       - JWT_SECRET=${JWT_SECRET}
       - AUTH_SESSION_TIMEOUT=43200
+      - TZ=America/Chicago
     restart: unless-stopped
 
 volumes:
