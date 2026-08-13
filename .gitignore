@@ -1,5 +1,6 @@
 .env
 stack.env
+.env.global
 containers/dockge/data/
 containers/linkwarden/data/
 containers/linkwarden/pgdata/

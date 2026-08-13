@@ -29,16 +29,6 @@ services:
 
   # [[ AudioMuse-AI plugin start ]]
 
-  # Redis service for RQ (task queue)
-  redis:
-    image: redis:7-alpine
-    container_name: navidrome_audiomuse-redis
-    ports:
-      - '${REDIS_PORT:-6379}:6379' # Expose Redis port to the host
-    volumes:
-      - redis-data:/data # Persistent storage for Redis data
-    restart: unless-stopped
-
   # PostgreSQL database service
   postgres:
     image: postgres:15-alpine
@@ -68,12 +58,11 @@ services:
       POSTGRES_DB: 'audiomusedb'
       POSTGRES_HOST: 'postgres' # Service name of the postgres container
       POSTGRES_PORT: '5432' # Internal port — always 5432 inside the Docker network
-      REDIS_URL: 'redis://redis:6379/0' # Connects to the 'redis' service
       TEMP_DIR: '/app/temp_audio'
     volumes:
       - temp-audio-flask:/app/temp_audio # Volume for temporary audio files
+      - plugins-flask:/app/plugin/installed # This container's own plugins cache (code + pip deps)
     depends_on:
-      - redis
       - postgres
     restart: unless-stopped
 
@@ -90,20 +79,22 @@ services:
       POSTGRES_DB: 'audiomusedb'
       POSTGRES_HOST: 'postgres' # Service name of the postgres container
       POSTGRES_PORT: '5432' # Internal port — always 5432 inside the Docker network
-      REDIS_URL: 'redis://redis:6379/0' # Connects to the 'redis' service
       TEMP_DIR: '/app/temp_audio'
     volumes:
       - temp-audio-worker:/app/temp_audio # Volume for temporary audio files
+      - plugins-worker:/app/plugin/installed # This container's own plugins cache (code + pip deps)
     depends_on:
-      - redis
       - postgres
     restart: unless-stopped
 
 # Define volumes for persistent data and temporary files
 volumes:
-  redis-data:
   postgres-data:
   temp-audio-flask: # Volume for Flask app's temporary audio
   temp-audio-worker: # Volume for Worker's temporary audio
+  # Installed plugins live here (not in the database). Flask and worker each keep
+  # their own copy and install into it, so plugins are reused across restarts.
+  plugins-flask:
+  plugins-worker:
   # [[ AudioMuse-AI plugin end ]]
 networks: {}
