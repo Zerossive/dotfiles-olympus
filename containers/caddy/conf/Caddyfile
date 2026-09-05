@@ -18,7 +18,7 @@
     @linkwarden path_regexp ^/(linkwarden|lw)
     redir @linkwarden http://olympus:3210 301
 
-    @container path_regexp ^/(dockge|docker|container)
+    @container path_regexp ^/(docker|container|arcane)
     redir @container http://olympus:3552/projects 301
 
     @book path_regexp ^/(book|audiobook)
@@ -27,7 +27,7 @@
     @rss path_regexp ^/(rss|freshrss)
     redir @rss http://olympus:49999 301
 
-    @full path /full
+    @full path_regexp ^/(full)
     redir @full http://olympus:50000 301
 
     @paperless path_regexp ^/(paper|document|docs)
