@@ -9,7 +9,7 @@ services:
       - TZ=America/Chicago
       - ND_ENABLEGRAVATAR=true
       - ND_ENABLESHARING=true
-      - ND_DEFAULTTHEME=Catppuccin Macchiato
+      - ND_DEFAULTTHEME=Catppuccin Mocha
       - ND_LASTFM_APIKEY=${ND_LASTFM_APIKEY}
       - ND_LASTFM_SECRET=${ND_LASTFM_SECRET}
       # enable plugins:
@@ -20,6 +20,7 @@ services:
       - ND_DEVARTISTINFOTIMETOLIVE=1s
       # add lyrics plugin (nd-lyrics):
       - ND_LYRICSPRIORITY=".ttml,.yaml,.yml,.elrc,.lrc,nd-lyrics,.srt,.txt,embedded"
+      - ND_ENABLENATURALSORTING=true
     volumes:
       - /home/danny/media/navidrome:/data
       - /home/danny/media/music:/music:ro
@@ -98,3 +99,4 @@ volumes:
   plugins-worker:
   # [[ AudioMuse-AI plugin end ]]
 networks: {}
+
